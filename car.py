@@ -21,6 +21,21 @@ class Agent:
 
 #def crossover():
 
+class neuralNetwork:
+   def __init__(self,inputNodesNumber,hiddenLayerNodesNumber,outputNodesNumber):
+        self.hiddenLayerWeights = np.random.randn(hiddenLayerNodesNumber,inputNodesNumber+1)
+        self.outputLayerWeights = np.random.randn(outputNodesNumber,hiddenLayerNodesNumber)
+   def sigmoid(self,x):
+        return 1./1. + (np.exp((-1)*x))
+
+   def run(self,inputs):
+       inputs = inputs / 1000.
+       inputs.append(1.0)
+       hiddenLayerValues = np.dot(self.hiddenLayerWeights,inputs)
+        #nota para continuar: Implementar a segunda HiddenLayer
+
+
+
 
 
 class RaceObject(pygame.sprite.Sprite):
@@ -55,10 +70,8 @@ class RaceObject(pygame.sprite.Sprite):
         self.obj_id = RaceObject.obj_counter
         RaceObject.obj_counter += 1
 
-    def neural_network(self,inputs):
-        a = 1
-        bias = 1
-        inputs =
+
+
 
     def terrain_overlap(self):
         return self.terrain_mask.overlap(self.mask,(self.rect[0],self.rect[1]))
